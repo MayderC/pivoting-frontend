@@ -12,7 +12,7 @@
         <h1
           class="bg-gradient-to-r text-3xl font-bold from-pink-500 to-purple-500 inline-block text-transparent bg-clip-text"
         >
-          Metodos Numéricos
+          Métodos Numéricos
         </h1>
 
         <RouterLink class="text-white font-bold" to="/metodo-pivoteo">
