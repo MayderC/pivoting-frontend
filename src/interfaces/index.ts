@@ -5,7 +5,7 @@ export interface Response {
   detail?: string
 }
 
-interface Solution {
+export interface Solution {
   x: number
   y: number
   z: number
