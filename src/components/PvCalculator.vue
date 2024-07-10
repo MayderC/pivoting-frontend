@@ -41,10 +41,7 @@
         Eliminar fila y columna
       </button>
 
-      <button
-        @click="removeRowAndColumn"
-        class="bg-green-400 text-white font-semibold rounded-lg p-2 mt-4"
-      >
+      <button @click="resolve" class="bg-green-400 text-white font-semibold rounded-lg p-2 mt-4">
         Resolver
       </button>
     </div>
@@ -53,9 +50,14 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import { resolveSystem } from '../services'
+import { useRoute } from 'vue-router'
 
+const $route = useRoute()
 const MIN = 2
 const currentSize = ref(MIN)
+
+const emit = defineEmits(['resolved'])
 
 const addVectorOf = (size: number) =>
   Array.from<number, number>({ length: size }, () => 0) as number[]
@@ -85,6 +87,22 @@ const removeRowAndColumn = () => {
     vector.value.pop()
     currentSize.value--
     unknowns.value = constants.value.split('').slice(0, currentSize.value)
+  }
+}
+
+const resolve = async () => {
+  const data = {
+    matrix: matrix.value,
+    vector: vector.value.map((item) => [item]),
+    unknowns: unknowns.value
+  }
+  const path = $route.name === 'escalonado' ? 'staggered' : 'parcial'
+
+  try {
+    const response = await resolveSystem(data, path)
+    emit('resolved', response)
+  } catch (error) {
+    console.error(error)
   }
 }
 </script>

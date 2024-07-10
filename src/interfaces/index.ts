@@ -1,6 +1,8 @@
 export interface Response {
   solution: Solution
   steps: Steps
+  error?: string
+  detail?: string
 }
 
 interface Solution {
