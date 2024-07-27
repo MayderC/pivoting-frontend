@@ -14,14 +14,23 @@
         >
           Métodos Numéricos
         </h1>
+        <div class="flex gap-4">
+          <RouterLink class="text-white font-bold" to="/metodo-pivoteo">
+            <div
+              class="bg-pv-purple w-28 rounded-full px-3 py-1 text-center hover:bg-purple-600 mt-5"
+            >
+              Iniciar
+            </div>
+          </RouterLink>
 
-        <RouterLink class="text-white font-bold" to="/metodo-pivoteo">
-          <div
-            class="bg-pv-purple w-28 rounded-full px-3 py-1 text-center hover:bg-purple-600 mt-5"
+          <a
+            class="bg-pv-purple w-28 rounded-full px-3 py-1 text-center hover:bg-purple-600 mt-5 text-white font-bold"
+            href="/MANUAL_DE_USUARIO.pdf"
+            download=""
           >
-            Iniciar
-          </div>
-        </RouterLink>
+            Manual
+          </a>
+        </div>
       </div>
       <div></div>
     </section>
